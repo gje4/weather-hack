@@ -43,6 +43,9 @@ const Navbar: FC = () => {
               <Link href="/search?q=accessories">
                 <a className={s.link}>Accessories</a>
               </Link>
+               <Link href="/search?q=searchbyforecast">
+                <a className={s.link}>Forecast</a>
+              </Link>
             </nav>
           </div>
 
@@ -58,6 +61,8 @@ const Navbar: FC = () => {
         <div className="flex pb-4 lg:px-6 lg:hidden">
           <Searchbar id="mobile-search" />
         </div>
+
+
       </Container>
     </div>
   )

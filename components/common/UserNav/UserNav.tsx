@@ -8,9 +8,24 @@ import { useUI } from '@components/ui/context'
 import DropdownMenu from './DropdownMenu'
 import s from './UserNav.module.css'
 import { Avatar } from '@components/common'
+import Glass from '@components/icons/Glass.tsx'
 
 interface Props {
   className?: string
+}
+
+function sayHello(){
+  var response = prompt('What is your zipcode?');
+  var data = JSON.stringify({"zipCode":response});
+  console.log(data);
+
+  const Http = new XMLHttpRequest();
+  let url = 'https://4v2a2id9pb.execute-api.us-east-1.amazonaws.com/dev/eventCategory'
+
+  Http.open("POST",url, true);
+  Http.setRequestHeader("Content-Type", "application/json");
+  Http.send(data);
+
 }
 
 const countItem = (count: number, item: any) => count + item.quantity
@@ -30,6 +45,13 @@ const UserNav: FC<Props> = ({ className, children, ...props }) => {
           <li className={s.item} onClick={toggleSidebar}>
             <Bag />
             {itemsCount > 0 && <span className={s.bagCount}>{itemsCount}</span>}
+          </li>
+          <li className={s.item}>
+            <Link href="/">
+              <a onClick={sayHello}>
+                <Glass />
+              </a>
+            </Link>    
           </li>
           <li className={s.item}>
             <Link href="/wishlist">
