@@ -76,11 +76,7 @@ const UserNav: FC<Props> = ({ className, children, ...props }) => {
           </li>
           <li className={s.item}>
             <Link href="/">
-<<<<<<< HEAD
-            <a onClick={() => openModal()}>
-=======
               <a onClick={() => openModal()}>
->>>>>>> 486459ae89c067b42dbce2d6795bdab3e7b0404b
                 <Glass />
               </a>
             </Link>
