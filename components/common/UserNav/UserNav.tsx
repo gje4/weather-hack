@@ -14,18 +14,46 @@ interface Props {
   className?: string
 }
 
-function sayHello(){
-  var response = prompt('What is your zipcode?');
-  var data = JSON.stringify({"zipCode":response});
-  console.log(data);
+function sayHello() {
+  var response = prompt('What is your zipcode?')
+  var data = JSON.stringify({ zipCode: response })
+  console.log(data)
 
-  const Http = new XMLHttpRequest();
-  let url = 'https://4v2a2id9pb.execute-api.us-east-1.amazonaws.com/dev/eventCategory'
+  fetch(
+    'https://4v2a2id9pb.execute-api.us-east-1.amazonaws.com/dev/eventCategory',
+    {
+      method: 'POST',
+      body: data,
+      // headers: { 'Content-type': 'application/json; charset=UTF-8' },
+    }
+  )
+    .then((res) => res.json())
+    .then(
+      (result) => {
+        console.log('products', result)
+        // this.setState({
+        //   // isLoaded: true,
+        //   // items: result.items
+        // })
+      },
+      // Note: it's important to handle errors here
+      // instead of a catch() block so that we don't swallow
+      // exceptions from actual bugs in components.
+      (error) => {
+        this.setState({
+          isLoaded: true,
+          error,
+        })
+      }
+    )
 
-  Http.open("POST",url, true);
-  Http.setRequestHeader("Content-Type", "application/json");
-  Http.send(data);
-
+  // const Http = new XMLHttpRequest()
+  // let url =
+  //   'https://4v2a2id9pb.execute-api.us-east-1.amazonaws.com/dev/eventCategory'
+  //
+  // Http.open('POST', url, true)
+  // Http.setRequestHeader('Content-Type', 'application/json')
+  // Http.send(data)
 }
 
 const countItem = (count: number, item: any) => count + item.quantity
@@ -51,7 +79,7 @@ const UserNav: FC<Props> = ({ className, children, ...props }) => {
               <a onClick={sayHello}>
                 <Glass />
               </a>
-            </Link>    
+            </Link>
           </li>
           <li className={s.item}>
             <Link href="/wishlist">
