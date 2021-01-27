@@ -6,6 +6,48 @@ import { validate } from 'email-validator'
 
 interface Props {}
 
+function sayHello() {
+  var response = prompt('What is your zipcode?')
+  var data = JSON.stringify({ zipCode: response })
+  console.log(data)
+
+  fetch(
+    'https://4v2a2id9pb.execute-api.us-east-1.amazonaws.com/dev/eventCategory',
+    {
+      method: 'POST',
+      body: data,
+      // headers: { 'Content-type': 'application/json; charset=UTF-8' },
+    }
+  )
+    .then((res) => res.json())
+    .then(
+      (result) => {
+        console.log('products', result)
+        // this.setState({
+        //   // isLoaded: true,
+        //   // items: result.items
+        // })
+      },
+      // Note: it's important to handle errors here
+      // instead of a catch() block so that we don't swallow
+      // exceptions from actual bugs in components.
+      (error) => {
+        this.setState({
+          isLoaded: true,
+          error,
+        })
+      }
+    )
+
+  // const Http = new XMLHttpRequest()
+  // let url =
+  //   'https://4v2a2id9pb.execute-api.us-east-1.amazonaws.com/dev/eventCategory'
+  //
+  // Http.open('POST', url, true)
+  // Http.setRequestHeader('Content-Type', 'application/json')
+  // Http.send(data)
+}
+
 const LoginView: FC<Props> = () => {
   // Form State
   const [email, setEmail] = useState('')
@@ -64,19 +106,8 @@ const LoginView: FC<Props> = () => {
         <Logo width="64px" height="64px" />
       </div>
       <div className="flex flex-col space-y-3">
-        {message && (
-          <div className="text-red border border-red p-3">
-            {message}. Did you {` `}
-            <a
-              className="text-accent-9 inline font-bold hover:underline cursor-pointer"
-              onClick={() => setModalView('FORGOT_VIEW')}
-            >
-              forgot your password?
-            </a>
-          </div>
-        )}
-        <Input type="email" placeholder="Email" onChange={setEmail} />
-        <Input type="password" placeholder="Password" onChange={setPassword} />
+        
+        <Input type="email" placeholder="Enter Zipcode" onChange={setEmail} />
 
         <Button
           variant="slim"
@@ -84,18 +115,9 @@ const LoginView: FC<Props> = () => {
           loading={loading}
           disabled={disabled}
         >
-          Log In
+          Submit Zipcode
         </Button>
-        <div className="pt-1 text-center text-sm">
-          <span className="text-accents-7">Don't have an account?</span>
-          {` `}
-          <a
-            className="text-accent-9 font-bold hover:underline cursor-pointer"
-            onClick={() => setModalView('SIGNUP_VIEW')}
-          >
-            Sign Up
-          </a>
-        </div>
+        
       </div>
     </form>
   )
