@@ -55,16 +55,23 @@ const LoginView: FC<Props> = () => {
     handleValidation()
   }, [handleValidation])
 
+  var styleModal = {
+    margin: '20px',
+    width: '1300px',
+    height: '500px',
+  };
+  
+  
   return (
     <form
       onSubmit={handleLogin}
-      className="w-80 flex flex-col justify-between p-3"
-    >
-      <div className="flex justify-center pb-12 ">
+      className="w-80 flex flex-col justify-between p-20" style={styleModal}>
+      <div className="flex justify-center pb-12" >
         <Logo width="64px" height="64px" />
       </div>
       <div className="flex flex-col space-y-3">
-        {message && (
+      <span className="text-accents-7">Search by Forecast</span>
+        {/* {message && (
           <div className="text-red border border-red p-3">
             {message}. Did you {` `}
             <a
@@ -74,27 +81,29 @@ const LoginView: FC<Props> = () => {
               forgot your password?
             </a>
           </div>
-        )}
-        <Input type="email" placeholder="Email" onChange={setEmail} />
-        <Input type="password" placeholder="Password" onChange={setPassword} />
-
-        <Button
+        )} */}
+        {/* <Input type="email" placeholder="Email" onChange={setEmail} /> */}
+        <Input width="100px" type="text" placeholder="Enter Your Zipcode" onChange={setPassword} />
+        
+        <Button width="300px"
+          
           variant="slim"
           type="submit"
           loading={loading}
           disabled={disabled}
         >
-          Log In
+        
+          Submit your Zipcode
         </Button>
         <div className="pt-1 text-center text-sm">
-          <span className="text-accents-7">Don't have an account?</span>
+          {/* <span className="text-accents-7">Don't have an account?</span> */}
           {` `}
-          <a
+          {/* <a
             className="text-accent-9 font-bold hover:underline cursor-pointer"
             onClick={() => setModalView('SIGNUP_VIEW')}
           >
             Sign Up
-          </a>
+          </a> */}
         </div>
       </div>
     </form>
