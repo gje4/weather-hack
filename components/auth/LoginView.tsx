@@ -18,6 +18,8 @@ const LoginView: FC<Props> = () => {
 
   const login = useLogin()
 
+  let textInput = React.createRef()
+
   const handleLogin = async (e: React.SyntheticEvent<EventTarget>) => {
     e.preventDefault()
 
@@ -41,6 +43,42 @@ const LoginView: FC<Props> = () => {
     }
   }
 
+  function handleClick() {
+    e.preventDefault()
+    console.log(textInput.current.value)
+
+    var data = JSON.stringify({ zipCode: e.target.value })
+    console.log(data)
+
+    fetch(
+      'https://4v2a2id9pb.execute-api.us-east-1.amazonaws.com/dev/eventCategory',
+      {
+        method: 'POST',
+        body: data,
+        // headers: { 'Content-type': 'application/json; charset=UTF-8' },
+      }
+    )
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          console.log('products', result)
+          // this.setState({
+          //   // isLoaded: true,
+          //   // items: result.items
+          // })
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          // this.setState({
+          //   // isLoaded: true,
+          //   // error,
+          // })
+        }
+      )
+  }
+
   const handleValidation = useCallback(() => {
     // Test for Alphanumeric password
     const validPassword = /^(?=.*[a-zA-Z])(?=.*[0-9])/.test(password)
@@ -59,32 +97,24 @@ const LoginView: FC<Props> = () => {
     margin: '20px',
     width: '1300px',
     height: '500px',
-  };
-  
-  
+  }
+
   return (
     <form
       onSubmit={handleLogin}
-      className="w-80 flex flex-col justify-between p-20" style={styleModal}>
-      <div className="flex justify-center pb-12" >
+      className="w-80 flex flex-col justify-between p-20"
+      style={styleModal}
+    >
+      <div className="flex justify-center pb-12">
         <Logo width="64px" height="64px" />
       </div>
       <div className="flex flex-col space-y-3">
-      <span className="text-accents-7">Search by Forecast</span>
-        
-        <Input width="100px" type="text" placeholder="Enter Your Zipcode" onChange={setPassword} />
-        
-        <Button width="300px"
-          
-          variant="slim"
-          type="submit"
-          loading={loading}
-          disabled={disabled}
-        >
-        
+        <span className="text-accents-7">Search by Forecast</span>
+        <input ref={textInput} placeholder="Enter Zip" />
+        <Button width="300px" variant="slim" onClick={handleClick}>
           Submit your Zipcode
         </Button>
-        
+        <div className="pt-1 text-center text-sm"></div>
       </div>
     </form>
   )
