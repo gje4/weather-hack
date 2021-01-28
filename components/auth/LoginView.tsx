@@ -8,7 +8,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Grid } from '@components/ui'
 import { ProductCard } from '@components/product'
 import { default as Item } from './Item'
-
 import styled from 'styled-components'
 
 interface Props {}
@@ -84,6 +83,23 @@ const LoginView: FC<Props> = () => {
     overflow: 'scroll',
     height: '500px',
   }
+
+  var styleText = {
+  //  backgroundColor: 'black',
+   color: 'black',
+   fontSize: 28,
+   fontWeight: 'bold'
+  }
+
+  var styleInput ={
+    textAlign: 'center',
+    width: '250px',
+    borderColor: 'black',
+    borderWidth: '1px',
+    fontSize: 18,
+
+  }
+  
   console.log('showproducts', showproducts)
   if (!showproducts) {
     return (
@@ -93,16 +109,18 @@ const LoginView: FC<Props> = () => {
           <Logo width="64px" height="64px" />
         </div>
         <div className="flex flex-col space-y-3">
-          <span className="text-accents-7">Search by Forecast</span>
+          <span className="text-accents-7" style={styleText}>Search by Forecast</span>
+        <div className="flex flex-col space-y-3" style={styleInput}>
           <input ref={textInput} placeholder="Enter Zip" />
-          <Button width="300px" variant="slim" onClick={handleClick}>
-            Submit your Zipcode
+        </div>
+          <Button width="250px" variant="slim" onClick={handleClick}>
+            Submit your Zip Code
           </Button>
           <div className="pt-1 text-center text-sm"></div>
         </div>
         <div>
           <section style={productBox}>
-            <h1>Get the Right Gear</h1>
+            <h1>Featured Products</h1>
             <picture>result</picture>
             <p>Test Test Test</p>
           </section>
