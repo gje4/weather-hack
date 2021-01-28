@@ -16,6 +16,10 @@ const buttonStyles = {
   letterSpacing: '1.5px',
 }
 
+function addtoCart(){
+  alert("added to cart!");
+}
+
 export default class Item extends Component {
   static propTypes = {
     item: PropTypes.object.isRequired,
@@ -38,6 +42,7 @@ export default class Item extends Component {
         <div className="buttonList">
           <button 
             style={buttonStyles}
+            onClick={addtoCart}
           >
             Add to Cart
           </button>
