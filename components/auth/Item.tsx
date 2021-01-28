@@ -5,6 +5,7 @@ import Parser from 'html-react-parser'
 
 const buttonStyles = {
   fontSize: '13px',
+  textAlign: 'center',
   color: '#fff',
   outline: 'none',
   padding: '12px 40px',

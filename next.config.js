@@ -10,6 +10,13 @@ module.exports = bundleAnalyzer({
     locales: ['en-US', 'es'],
     defaultLocale: 'en-US',
   },
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
   rewrites() {
     return [
       {
