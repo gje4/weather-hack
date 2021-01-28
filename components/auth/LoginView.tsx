@@ -18,7 +18,6 @@ const LoginView: FC<Props> = () => {
     grid-template-columns: 1fr 1fr;
     grid-gap: 60px;
     margin: 0 auto;
-    
   `
   // Form State
   // const [email, setEmail] = useState('')
@@ -86,44 +85,46 @@ const LoginView: FC<Props> = () => {
     overflow: 'scroll',
     height: '700px',
     borderWidth: '10px',
-    borderColor: 'black'
+    borderColor: 'black',
   }
 
   var styleText = {
-  //  backgroundColor: 'black',
-   color: 'black',
-   fontSize: 28,
-   fontWeight: 'bold'
+    //  backgroundColor: 'black',
+    color: 'black',
+    fontSize: 28,
+    fontWeight: 'bold',
   }
 
-  var styleInput ={
+  var styleInput = {
     textAlign: 'center',
     width: '250px',
     borderColor: 'black',
     borderWidth: '1px',
     fontSize: 18,
-
   }
 
-  var styleImages ={
+  var styleImages = {
     display: 'flex',
     width: '350px',
-
   }
-  
+
   console.log('showproducts', showproducts)
   if (!showproducts) {
     return (
-      <div className="w-80 flex flex-col justify-between p-20"
-        style={styleModal}>
+      <div
+        className="w-80 flex flex-col justify-between p-20"
+        style={styleModal}
+      >
         <div className="flex justify-center pb-12">
           <Logo width="64px" height="64px" />
         </div>
         <div className="flex flex-col space-y-3">
-          <span className="text-accents-7" style={styleText}>Search by Forecast</span>
-        <div className="flex flex-col space-y-3" style={styleInput}>
-          <input ref={textInput} placeholder="Enter Zip" />
-        </div>
+          <span className="text-accents-7" style={styleText}>
+            Search by Forecast
+          </span>
+          <div className="flex flex-col space-y-3" style={styleInput}>
+            <input ref={textInput} placeholder="Enter Zip" />
+          </div>
           <Button width="250px" variant="slim" onClick={handleClick}>
             Submit your Zip Code
           </Button>
@@ -133,13 +134,29 @@ const LoginView: FC<Props> = () => {
           <section style={productBox}>
             <h1>Featured Products</h1>
             <br></br>
-            
+
             <div className="productImages" style={styleImages}>
-            <img src={'https://cdn11.bigcommerce.com/s-lykxcl4bnx/products/156/images/485/snowboard-googles__24729.1611338718.386.513.jpg'}></img>
-            <img src={'https://cdn11.bigcommerce.com/s-lykxcl4bnx/products/153/images/481/heavy-rain-fish__97224.1611338200.386.513.jpg'}></img>
-            <img src={'https://cdn11.bigcommerce.com/s-lykxcl4bnx/products/149/images/476/mittens__44854.1611329460.386.513.jpg'}></img>
-            <img src={'https://cdn11.bigcommerce.com/s-lykxcl4bnx/products/135/images/461/BC-sunglasses__88092.1611327241.386.513.jpg'}></img>
-            {/* <img src={'https://cdn11.bigcommerce.com/s-lykxcl4bnx/products/142/images/488/classic-raincoat__15533.1611339089.386.513.jpg'}></img> */}
+              <img
+                src={
+                  'https://cdn11.bigcommerce.com/s-lykxcl4bnx/products/156/images/485/snowboard-googles__24729.1611338718.386.513.jpg'
+                }
+              ></img>
+              <img
+                src={
+                  'https://cdn11.bigcommerce.com/s-lykxcl4bnx/products/153/images/481/heavy-rain-fish__97224.1611338200.386.513.jpg'
+                }
+              ></img>
+              <img
+                src={
+                  'https://cdn11.bigcommerce.com/s-lykxcl4bnx/products/149/images/476/mittens__44854.1611329460.386.513.jpg'
+                }
+              ></img>
+              <img
+                src={
+                  'https://cdn11.bigcommerce.com/s-lykxcl4bnx/products/135/images/461/BC-sunglasses__88092.1611327241.386.513.jpg'
+                }
+              ></img>
+              {/* <img src={'https://cdn11.bigcommerce.com/s-lykxcl4bnx/products/142/images/488/classic-raincoat__15533.1611339089.386.513.jpg'}></img> */}
             </div>
           </section>
         </div>
@@ -151,14 +168,19 @@ const LoginView: FC<Props> = () => {
         className="w-80 flex flex-col justify-between p-20"
         style={styleModal}
       >
-        <div>
-          <section style={productBox}>
-            <ItemsList>
-              {products.map((product) => (
-                <Item product={product} key={product.id} />
-              ))}
-            </ItemsList>
-          </section>
+        <div className="flex justify-center pb-12">
+          <Logo width="64px" height="64px" />
+        </div>
+        <div className="flex flex-col space-y-3">
+          <div>
+            <section style={productBox}>
+              <ItemsList>
+                {products.map((product) => (
+                  <Item product={product} key={product.id} />
+                ))}
+              </ItemsList>
+            </section>
+          </div>
         </div>
       </div>
     )

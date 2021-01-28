@@ -16,8 +16,8 @@ const buttonStyles = {
   letterSpacing: '1.5px',
 }
 
-function addtoCart(){
-  alert("added to cart!");
+function addtoCart() {
+  alert('added to cart!')
 }
 
 export default class Item extends Component {
@@ -27,7 +27,6 @@ export default class Item extends Component {
   static contextTypes = {
     router: PropTypes.object,
   }
-  async redirectToCheckout(event) {}
 
   render() {
     const { product } = this.props
@@ -40,16 +39,10 @@ export default class Item extends Component {
         <div>{product.name}</div>
 
         <div className="buttonList">
-          <button 
-            style={buttonStyles}
-            onClick={addtoCart}
-          >
+          <button style={buttonStyles} onClick={addtoCart}>
             Add to Cart
           </button>
-          <button
-            style={buttonStyles}
-            onClick={(event) => this.redirectToCheckout(event)}
-          >
+          <button style={buttonStyles} onClick={addtoCart}>
             Learn More
           </button>
         </div>
