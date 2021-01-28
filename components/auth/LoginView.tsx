@@ -7,10 +7,20 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { Grid } from '@components/ui'
 import { ProductCard } from '@components/product'
+import { default as Item } from './Item'
+
+import styled from 'styled-components'
 
 interface Props {}
 
 const LoginView: FC<Props> = () => {
+  const ItemsList = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 60px;
+    margin: 0 auto;
+    overflow: scroll;
+  `
   // Form State
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -18,11 +28,7 @@ const LoginView: FC<Props> = () => {
   const [message, setMessage] = useState('')
   const [dirty, setDirty] = useState(false)
   const [disabled, setDisabled] = useState(false)
-  const [products, setproducts] = useState({})
-  const [state, setState] = useState({
-    products: [],
-  })
-
+  const [products, setproducts] = useState([])
   const [showproducts, setshowproducts] = useState(false)
 
   const { setModalView } = useUI()
@@ -50,13 +56,11 @@ const LoginView: FC<Props> = () => {
         (result) => {
           console.log('products', result.products)
           console.log('products 1', result.products.data)
-          setState({ ...state, products: result.products.data })
-          console.log('state', state.products)
+          // setState({ ...state, products: result.products.data })
+          setproducts(result.products.data)
+          console.log('test', { products })
 
           setshowproducts(true)
-          // setproducts(result.products.data)
-
-          console.log('test', { products })
         },
         (error) => {
           console.log('error', error)
@@ -71,11 +75,14 @@ const LoginView: FC<Props> = () => {
     borderColor: '#000',
     padding: 10,
     margin: 20,
+    overflow: scroll,
   }
 
   var styleModal = {
     margin: '20px',
     width: '1300px',
+    overflow: scroll,
+
     height: '500px',
   }
   console.log('showproducts', showproducts)
@@ -98,7 +105,7 @@ const LoginView: FC<Props> = () => {
         </div>
         <div>
           <section style={productBox}>
-            <h1>Hello World</h1>
+            <h1>Get the Right Gear</h1>
             <picture>result</picture>
             <p>Test Test Test</p>
           </section>
@@ -107,12 +114,19 @@ const LoginView: FC<Props> = () => {
     )
   } else
     return (
-      <div>
-        <section style={productBox}>
-          <h1>Hello World</h1>
-          <picture>result</picture>
-          <p>Test Test Test</p>
-        </section>
+      <div
+        className="w-80 flex flex-col justify-between p-20"
+        style={styleModal}
+      >
+        <div>
+          <section style={productBox}>
+            <ItemsList>
+              {products.map((product) => (
+                <Item product={product} key={product.id} />
+              ))}
+            </ItemsList>
+          </section>
+        </div>
       </div>
     )
 }
