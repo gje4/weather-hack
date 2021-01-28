@@ -85,6 +85,8 @@ const LoginView: FC<Props> = () => {
     width: '1500px',
     overflow: 'scroll',
     height: '700px',
+    borderWidth: '10px',
+    borderColor: 'black'
   }
 
   var styleText = {
@@ -105,7 +107,7 @@ const LoginView: FC<Props> = () => {
 
   var styleImages ={
     display: 'flex',
-    width: '350px'
+    width: '350px',
 
   }
   
