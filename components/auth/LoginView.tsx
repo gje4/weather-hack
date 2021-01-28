@@ -76,15 +76,15 @@ const LoginView: FC<Props> = () => {
     // padding: 10,
     // margin: 20,
     // overflow: 'scroll',
-    fontSize: 36,
-    fontWeight: 'bold'
+    fontSize: 28,
+    fontWeight: 'bold',
   }
 
   var styleModal = {
     margin: '20px',
-    width: '1300px',
+    width: '1500px',
     overflow: 'scroll',
-    height: '500px',
+    height: '700px',
   }
 
   var styleText = {
@@ -100,6 +100,12 @@ const LoginView: FC<Props> = () => {
     borderColor: 'black',
     borderWidth: '1px',
     fontSize: 18,
+
+  }
+
+  var styleImages ={
+    display: 'flex',
+    width: '350px'
 
   }
   
@@ -124,12 +130,15 @@ const LoginView: FC<Props> = () => {
         <div>
           <section style={productBox}>
             <h1>Featured Products</h1>
+            <br></br>
+            
+            <div className="productImages" style={styleImages}>
             <img src={'https://cdn11.bigcommerce.com/s-lykxcl4bnx/products/156/images/485/snowboard-googles__24729.1611338718.386.513.jpg'}></img>
             <img src={'https://cdn11.bigcommerce.com/s-lykxcl4bnx/products/153/images/481/heavy-rain-fish__97224.1611338200.386.513.jpg'}></img>
             <img src={'https://cdn11.bigcommerce.com/s-lykxcl4bnx/products/149/images/476/mittens__44854.1611329460.386.513.jpg'}></img>
             <img src={'https://cdn11.bigcommerce.com/s-lykxcl4bnx/products/135/images/461/BC-sunglasses__88092.1611327241.386.513.jpg'}></img>
-            <img src={'https://cdn11.bigcommerce.com/s-lykxcl4bnx/products/142/images/488/classic-raincoat__15533.1611339089.386.513.jpg'}></img>
-            
+            {/* <img src={'https://cdn11.bigcommerce.com/s-lykxcl4bnx/products/142/images/488/classic-raincoat__15533.1611339089.386.513.jpg'}></img> */}
+            </div>
           </section>
         </div>
       </div>
