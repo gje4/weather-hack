@@ -19,15 +19,15 @@ const LoginView: FC<Props> = () => {
     grid-template-columns: 1fr 1fr;
     grid-gap: 60px;
     margin: 0 auto;
-    overflow: scroll;
+    
   `
   // Form State
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [message, setMessage] = useState('')
-  const [dirty, setDirty] = useState(false)
-  const [disabled, setDisabled] = useState(false)
+  // const [email, setEmail] = useState('')
+  // const [password, setPassword] = useState('')
+  // const [loading, setLoading] = useState(false)
+  // const [message, setMessage] = useState('')
+  // const [dirty, setDirty] = useState(false)
+  // const [disabled, setDisabled] = useState(false)
   const [products, setproducts] = useState([])
   const [showproducts, setshowproducts] = useState(false)
 
@@ -75,23 +75,20 @@ const LoginView: FC<Props> = () => {
     borderColor: '#000',
     padding: 10,
     margin: 20,
-    overflow: scroll,
+    overflow: 'scroll',
   }
 
   var styleModal = {
     margin: '20px',
     width: '1300px',
-    overflow: scroll,
-
+    overflow: 'scroll',
     height: '500px',
   }
   console.log('showproducts', showproducts)
   if (!showproducts) {
     return (
-      <div
-        className="w-80 flex flex-col justify-between p-20"
-        style={styleModal}
-      >
+      <div className="w-80 flex flex-col justify-between p-20"
+        style={styleModal}>
         <div className="flex justify-center pb-12">
           <Logo width="64px" height="64px" />
         </div>
