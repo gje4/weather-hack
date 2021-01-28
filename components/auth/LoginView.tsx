@@ -92,6 +92,15 @@ const LoginView: FC<Props> = () => {
     handleValidation()
   }, [handleValidation])
 
+  var productBox = {
+    backgroundColor: '#fff',
+        borderRadius: 4,
+        borderWidth: 0.5,
+        borderColor: '#000',
+        padding: 10,
+        margin: 20,
+  }
+
   var styleModal = {
     margin: '20px',
     width: '1300px',
@@ -115,7 +124,14 @@ const LoginView: FC<Props> = () => {
         </Button>
         <div className="pt-1 text-center text-sm"></div>
       </div>
-    </form>
+  <div>
+    <section style={productBox}>
+      <h1>Hello World</h1>
+      <picture>result</picture>
+      <p>Test Test Test</p>
+    </section>
+  </div>
+    </form>    
   )
 }
 
