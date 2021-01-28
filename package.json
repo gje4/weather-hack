@@ -58,7 +58,7 @@
     "lodash.debounce": "^4.0.8",
     "lodash.random": "^3.2.0",
     "lodash.throttle": "^4.1.1",
-    "next": "^10.0.5-canary.11",
+    "next": "^10.0.5-canary.12",
     "next-seo": "^4.11.0",
     "next-themes": "^0.0.4",
     "postcss-nesting": "^7.0.1",
@@ -101,5 +101,21 @@
   "resolutions": {
     "webpack": "5.11.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "description": "[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fcommerce&project-name=commerce&repo-name=commerce&demo-title=Next.js%20Commerce&demo-description=An%20all-in-one%20starter%20kit%20for%20high-performance%20e-commerce%20sites.&demo-url=https%3A%2F%2Fdemo.vercel.store&demo-image=https%3A%2F%2Fbigcommerce-demo-asset-ksvtgfvnd.vercel.app%2Fbigcommerce.png&integration-ids=oac_MuWZiE4jtmQ2ejZQaQ7ncuDT)",
+  "main": "next.config.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gje4/weather-hack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/gje4/weather-hack/issues"
+  },
+  "homepage": "https://github.com/gje4/weather-hack#readme"
 }

@@ -9,6 +9,8 @@ interface Props {
   description: string
 }
 
+
+
 const Hero: FC<Props> = ({ headline, description }) => {
   return (
     <div className="bg-black">
