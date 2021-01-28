@@ -109,9 +109,7 @@ const LoginView: FC<Props> = () => {
     return (
       <div>
         <section style={productBox}>
-          <h1>Hello World</h1>
-          <picture>result</picture>
-          <p>Test Test Test</p>
+          
         </section>
       </div>
     )
