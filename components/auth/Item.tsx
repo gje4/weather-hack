@@ -20,7 +20,9 @@ function addtoCart() {
   alert('added to cart!')
 }
 
-export default class Item extends Component {
+interface Props {}
+
+export default class Item extends Component<Props> {
   static propTypes = {
     item: PropTypes.object.isRequired,
   }
