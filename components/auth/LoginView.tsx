@@ -17,7 +17,7 @@ const LoginView: FC<Props> = () => {
     margin: 0 auto;
   `
   // Form State
-  // const [email, setEmail] = useState('')
+  const [zip, setzip] = useState('')
   // const [password, setPassword] = useState('')
   // const [loading, setLoading] = useState(false)
   // const [message, setMessage] = useState('')
@@ -30,12 +30,17 @@ const LoginView: FC<Props> = () => {
 
   const login = useLogin()
 
-  let textInput = React.createRef()
+  function onInputchange(event) {
+    console.log('1', event.target.value.zip)
+
+    setzip(event.target.value)
+  }
 
   async function handleClick() {
-    console.log(textInput.current.value)
+    // console.log(textInput.current.value)
+    console.log('statee', zip)
 
-    var data = JSON.stringify({ zipCode: textInput.current.value })
+    var data = JSON.stringify({ zipCode: zip })
     console.log(data)
 
     await fetch(
@@ -120,7 +125,7 @@ const LoginView: FC<Props> = () => {
             Search by Forecast
           </span>
           <div className="flex flex-col space-y-3" style={styleInput}>
-            <input ref={textInput} placeholder="Enter Zip" />
+            <input onChange={onInputchange} placeholder="Enter Zip" />
           </div>
           <Button width="250px" variant="slim" onClick={handleClick}>
             Submit your Zip Code
