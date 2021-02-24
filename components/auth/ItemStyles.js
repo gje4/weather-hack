@@ -8,9 +8,11 @@ const Item = styled.div`
   display: flex;
   flex-direction: column;
   img {
+    padding-top: 25px;
+    align-self: center;
     width: 100%;
     height: 400px;
-    object-fit: cover;
+    object-fit: contain;
   }
   p {
     font-size: 12px;
